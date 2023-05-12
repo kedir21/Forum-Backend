@@ -2,7 +2,7 @@ const express = require('express');
 require('dotenv').config()
 const cors = require('cors');
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 80;
 const userRouter = require('./server/api/users/user.router')
 const questionRouter = require('./server/api/questions/question.router');
 const answerRouter = require('./server/api/answers/answer.router');
@@ -16,7 +16,7 @@ app.use("/api/answer",answerRouter);
 
 
 
-app.listen( port , () => {
+app.listen( port ,"0.0.0.0", () => {
     console.log(`server running at http://localhost:${port}`);
 })
 
